@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'tictactoe_mode_screen.dart';
+import 'wordle_game.dart'; // Import Wordle Game
 
 class GameSelectionScreen extends StatelessWidget {
   const GameSelectionScreen({super.key});
@@ -41,13 +42,11 @@ class GameSelectionScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    // Placeholder navigation for Wordle
+                    // Navigate to Wordle Game
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const PlaceholderScreen(
-                          title: 'Wordle',
-                        ),
+                        builder: (context) => const WordleGame(),
                       ),
                     );
                   },

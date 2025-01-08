@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'tic_tac_toe_game.dart'; // Import for "Play with Friends"
 import 'tic_tac_toe_bot.dart'; // Import for "Play with Bot"
+import 'wordle_game.dart'; // Import for Wordle Game
 
 void main() {
   runApp(const ArcaneGameHub());
@@ -18,7 +19,7 @@ class ArcaneGameHub extends StatelessWidget {
   }
 }
 
-// Game Selection Screen (Tic Tac Toe, Wordle, Sudoku)
+// Game Selection Screen
 class GameSelectionScreen extends StatelessWidget {
   const GameSelectionScreen({super.key});
 
@@ -30,7 +31,7 @@ class GameSelectionScreen extends StatelessWidget {
           // Background image
           Positioned.fill(
             child: Image.asset(
-              'assets/images/arcane.jpg', // Path to your image file
+              'assets/images/arcane.jpg',
               fit: BoxFit.cover,
             ),
           ),
@@ -64,7 +65,6 @@ class GameSelectionScreen extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Navigate to Tic Tac Toe Mode Selection Screen
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -81,9 +81,12 @@ class GameSelectionScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    // Placeholder for Wordle
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Wordle Coming Soon!')),
+                    // Navigate to Wordle Game Screen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const WordleGame(),
+                      ),
                     );
                   },
                   style: _buttonStyle(Colors.greenAccent),
@@ -95,7 +98,6 @@ class GameSelectionScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    // Placeholder for Sudoku
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Sudoku Coming Soon!')),
                     );
@@ -137,48 +139,40 @@ class TicTacToeModeSelectionScreen extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          // Background image
           Positioned.fill(
             child: Image.asset(
-              'assets/images/arcane.jpg', // Path to your image file
+              'assets/images/arcane.jpg',
               fit: BoxFit.cover,
             ),
           ),
-          // Mode Selection Buttons
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Navigate to Play with Friends
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>  TicTacToeGame(),
+                        builder: (context) => TicTacToeGame(),
                       ),
                     );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueAccent,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 32, vertical: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
                   child: const Text(
                     'Play with Friends',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                    ),
+                    style: TextStyle(fontSize: 20, color: Colors.white),
                   ),
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    // Navigate to Play with Bot
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -188,18 +182,14 @@ class TicTacToeModeSelectionScreen extends StatelessWidget {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.greenAccent,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 32, vertical: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
                   child: const Text(
                     'Play with Bot',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                    ),
+                    style: TextStyle(fontSize: 20, color: Colors.white),
                   ),
                 ),
               ],
