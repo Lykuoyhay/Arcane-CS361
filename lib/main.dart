@@ -154,7 +154,7 @@ class TicTacToeModeSelectionScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => TicTacToeGame(),
+                        builder: (context) => const TicTacToeGame(),
                       ),
                     );
                   },
@@ -176,7 +176,7 @@ class TicTacToeModeSelectionScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => TicTacToeBotGame(),
+                        builder: (context) => const TicTacToeBotGame(),
                       ),
                     );
                   },

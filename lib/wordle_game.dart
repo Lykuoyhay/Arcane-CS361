@@ -6,6 +6,8 @@ void main() {
 }
 
 class WordleApp extends StatelessWidget {
+  const WordleApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,6 +19,8 @@ class WordleApp extends StatelessWidget {
 }
 
 class WordleGame extends StatefulWidget {
+  const WordleGame({super.key});
+
   @override
   _WordleGameState createState() => _WordleGameState();
 }
@@ -1016,7 +1020,7 @@ class _WordleGameState extends State<WordleGame> {
   void submitWord() {
     if (currentCol < 5) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Word must be 5 letters')),
+        const SnackBar(content: Text('Word must be 5 letters')),
       );
       return;
     }
@@ -1024,7 +1028,7 @@ class _WordleGameState extends State<WordleGame> {
     String guess = grid[currentRow].join('');
     if (!dictionary.contains(guess)) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Word not in dictionary')),
+        const SnackBar(content: Text('Word not in dictionary')),
       );
       return;
     }
@@ -1055,7 +1059,7 @@ class _WordleGameState extends State<WordleGame> {
               Navigator.of(context).pop();
               resetGame();
             },
-            child: Text('Play Again'),
+            child: const Text('Play Again'),
           ),
         ],
       ),
@@ -1075,12 +1079,12 @@ class _WordleGameState extends State<WordleGame> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Wordle')),
+      appBar: AppBar(title: const Text('Wordle')),
       body: Column(
         children: [
           Expanded(
             child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 5,
                 mainAxisSpacing: 8,
                 crossAxisSpacing: 8,
@@ -1108,7 +1112,7 @@ class _WordleGameState extends State<WordleGame> {
                   ),
                   child: Text(
                     letter.toUpperCase(),
-                    style: TextStyle(fontSize: 24, color: Colors.white),
+                    style: const TextStyle(fontSize: 24, color: Colors.white),
                   ),
                 );
               },
@@ -1128,15 +1132,15 @@ class _WordleGameState extends State<WordleGame> {
                 }),
                 ElevatedButton(
                   onPressed: removeLetter,
-                  child: Text('Delete'),
                   style:
                       ElevatedButton.styleFrom(backgroundColor: Colors.orange),
+                  child: Text('Delete'),
                 ),
                 ElevatedButton(
                   onPressed: submitWord,
-                  child: Text('Enter'),
                   style:
                       ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                  child: Text('Enter'),
                 ),
               ],
             ),
