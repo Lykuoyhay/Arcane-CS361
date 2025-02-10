@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 void main() {
-  runApp(WordleApp());
+  runApp(const WordleApp());
 }
 
 class WordleApp extends StatelessWidget {
@@ -13,7 +13,7 @@ class WordleApp extends StatelessWidget {
     return MaterialApp(
       title: 'Wordle',
       theme: ThemeData(primarySwatch: Colors.purple),
-      home: WordleGame(),
+      home: const WordleGame(),
     );
   }
 }
@@ -1134,13 +1134,13 @@ class _WordleGameState extends State<WordleGame> {
                   onPressed: removeLetter,
                   style:
                       ElevatedButton.styleFrom(backgroundColor: Colors.orange),
-                  child: Text('Delete'),
+                  child: const Text('Delete'),
                 ),
                 ElevatedButton(
                   onPressed: submitWord,
                   style:
                       ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                  child: Text('Enter'),
+                  child: const Text('Enter'),
                 ),
               ],
             ),

@@ -85,7 +85,7 @@ class GameSelectionScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>  WordleGame(),
+                        builder: (context) =>  const WordleGame(),
                       ),
                     );
                   },
